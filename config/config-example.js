@@ -15,9 +15,6 @@ exports.proxyip = false;
 //   in every Random Battle team.
 exports.potd = '';
 
-exports.superAdmins = {
-	"bailong2": 1
-};
 // crash guard - write errors to log file instead of crashing
 //   This is normally not recommended - if Node wants to crash, the
 //   server needs to be restarted
@@ -63,6 +60,13 @@ exports.loginserverpublickey = "-----BEGIN RSA PUBLIC KEY-----\n" +
 	to: 'admin@example.com',
 	subject: 'Pokemon Showdown has crashed!'
 };**/
+
+// basic name filter - removes characters used for impersonation
+//   The basic name filter removes Unicode characters that can be used for impersonation,
+//   like the upside-down exclamation mark (looks like an i), the Greek omicron (looks
+//   like an o), etc. Disable only if you need one of the alphabets it disables, such as
+//   Greek or Cyrillic.
+exports.disablebasicnamefilter = false;
 
 // report joins and leaves - shows messages like "<USERNAME> joined"
 //   Join and leave messages are small and consolidated, so there will never
@@ -255,7 +259,7 @@ exports.grouplist = [
 		id: "admin",
 		name: "Administrator",
 		root: true,
-		globalonly: true
+		globalonly: true,
 	},
 	{
 		symbol: '&',
@@ -276,7 +280,7 @@ exports.grouplist = [
 		potd: true,
 		disableladder: true,
 		globalonly: true,
-		tournamentsmanagement: true
+		tournamentsmanagement: true,
 	},
 	{
 		symbol: '#',
@@ -290,7 +294,7 @@ exports.grouplist = [
 		declare: true,
 		modchatall: true,
 		roomonly: true,
-		tournamentsmanagement: true
+		tournamentsmanagement: true,
 	},
 	{
 		symbol: '\u2605',
@@ -301,7 +305,7 @@ exports.grouplist = [
 		modchat: true,
 		roomonly: true,
 		editroom: true,
-		joinbattle: true
+		joinbattle: true,
 	},
 	{
 		symbol: '@',
@@ -315,7 +319,7 @@ exports.grouplist = [
 		forcerename: true,
 		ip: true,
 		alts: '@u',
-		tournaments: true
+		tournaments: true,
 	},
 	{
 		symbol: '%',
@@ -336,7 +340,7 @@ exports.grouplist = [
 		receiveauthmessages: true,
 		tournamentsmoderation: true,
 		jeopardy: true,
-		joinbattle: true
+		joinbattle: true,
 	},
 	{
 		symbol: '+',
@@ -344,10 +348,10 @@ exports.grouplist = [
 		name: "Voice",
 		inherit: ' ',
 		alts: 's',
-		broadcast: true
+		broadcast: true,
 	},
 	{
 		symbol: ' ',
-		ip: 's'
-	}
+		ip: 's',
+	},
 ];
